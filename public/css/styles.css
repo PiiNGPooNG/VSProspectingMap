@@ -1,0 +1,184 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Properties */
+:root {
+    --primary: #59c1d4;
+    --primary-dark: #3c97a6;
+    --quality: #111111;
+
+    --bg: #444444;
+    --box-bg: #555555;
+
+    --font: white;
+    --font-hover: #cccccc;
+
+    --button: var(--primary);
+}
+
+/* Styles */
+body {
+    font-family: sans-serif;
+    color: var(--font);
+    background-color: var(--bg);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    color: var(--font);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--font-hover);
+}
+
+.formWrapper {
+    background-color: var(--box-bg);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+.submit {
+    margin-top: .5rem;
+}
+
+input, select, button {
+    outline: none;
+    border: 2px solid #444444;
+    border-radius: .25rem;
+    padding: .25rem .5rem;
+}
+
+button {
+    cursor: pointer;
+}
+
+input:focus, select:focus, button:focus {
+    border-color: var(--primary);
+}
+
+.inputRow {
+    padding-bottom: .5rem;
+}
+
+.inputRow:last-of-type, .inputRow:empty {
+    padding-bottom: 0;
+}
+
+label {
+    padding: 0 .5rem;
+}
+
+.submit {
+    background-color: var(--button);
+    border-color: var(--button)
+}
+
+.submit:hover, .submit:focus {
+    --button: var(--primary-dark);
+}
+
+.coords {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.coords > .precise, .coords > .chunk {
+    margin: 0 2rem;
+}
+
+.coords .x, .coords .y {
+    display: inline-block;
+    min-width: 60px;
+    text-align: right;
+    padding: .25rem .5rem;
+    border-radius: .25rem;
+    background-color: var(--box-bg);
+}
+
+.coords .x {
+    margin-right: .25rem;
+}
+
+.none {
+    --quality: #111111;
+}
+
+.very-poor {
+    --quality: #e12729;
+}
+
+.poor {
+    --quality: #f37324;
+}
+
+.decent {
+    --quality: #f8cc1b;
+}
+
+.high {
+    --quality: #72b043;
+}
+
+.very-high {
+    --quality: #007f4e;
+}
+
+.ultra-high {
+    --quality: #59c1d4;
+}
+
+.legend {
+    margin-top: 1rem;
+    align-self: stretch;
+    padding-left: 40px;
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
+
+.density {
+    padding: .25rem 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.density::before {
+    content: '';
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: .25rem;
+    background-color: var(--quality);
+}

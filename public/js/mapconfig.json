@@ -1,0 +1,11 @@
+{
+  "chunkSize": 32,
+  "chunksPerMarker": 4,
+  "chunksPerRegion": 32,
+  "border": 40,
+  "defaultX": -10,
+  "defaultY": -10,
+  "defaultScale": 0.5,
+  "defaultOre": "alum",
+  "fetchAddress": "/getSamples"
+}

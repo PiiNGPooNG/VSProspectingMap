@@ -1,0 +1,67 @@
+doctype html
+html(lang="en")
+    head
+        title VS Prospecting Map
+        link(rel="stylesheet" href="/css/styles.css")
+        script(src="js/main.js" type="module" defer)
+    body
+        .container
+            select#shownOre(name="shownOre" autocomplete="off")
+                each name, value in ores
+                    option(value=value)= name
+            canvas#map(width="800" height="800")
+            .coords
+                .precise
+                    .x 0
+                    .y 0
+                .chunk
+                    .x 0
+                    .y 0
+            .legend
+                .density.none  none
+                .density.very-poor very poor
+                .density.poor poor
+                .density.decent decent
+                .density.high high
+                .density.very-high very high
+                .density.ultra-high ultra high
+            .formWrapper
+                if isLoggedIn
+                    form#newSample(action="/addSample")
+                        .inputRow
+                            label(for="sampleX") X
+                            input#sampleX(type="number" name="sampleX" required)
+                            label(for="sampleY") Y
+                            input#sampleY(type="number" name="sampleY" required)
+                        .newSampleOres.inputRow
+                        .inputRow
+                            select#ore(name="ore" form="addOre")
+                                each name, value in ores
+                                    option(value=value)= name
+                            select#density(name="density" form="addOre")
+                                option(value=6) ultra high
+                                option(value=5) very high
+                                option(value=4) high
+                                option(value=3) decent
+                                option(value=2) poor
+                                option(value=1 selected) very poor
+                            button(type="submit" form="addOre") +
+                        .inputRow
+                            button.submit(type="submit") Add sample
+                    form#addOre
+                else
+                    form#login(action="/login")
+                        .inputRow
+                            label(for="username") Username
+                            br
+                            input#username(type="text" name="username")
+                        .inputRow
+                            label(for="password") Password
+                            br
+                            input#password(type="password" name="password")
+                        .inputRow
+                            button.submit(type="submit") Login
+        template#newOreTemplate
+            .newOre.inputRow
+                span
+                input(type="hidden")
