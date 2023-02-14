@@ -8,7 +8,7 @@ exports.get = async function (req, res) {
     }
     const samples = await Sample.find({
         x: {$gte: area.x0, $lt: area.x1}, y: {$gte: area.y0, $lt: area.y1}
-    }, {_id: 0});
+    }, {_id: 0, createdAt: 0, updatedAt: 0});
     res.json({success: true, samples: samples});
 }
 
