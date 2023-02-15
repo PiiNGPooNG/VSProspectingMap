@@ -8,7 +8,7 @@ export class MapParams {
         this.#config = config;
     }
 
-    x() {
+    get x() {
         let x = parseInt(this.#urlParams.get('x'));
         if (isNaN(x)) {
             x = this.#config.defaultX;
@@ -16,7 +16,7 @@ export class MapParams {
         return x;
     }
 
-    y() {
+    get y() {
         let y = parseInt(this.#urlParams.get('y'));
         if (isNaN(y)) {
             y = this.#config.defaultY;
@@ -24,7 +24,7 @@ export class MapParams {
         return y;
     }
 
-    scale() {
+    get scale() {
         let scale = parseFloat(this.#urlParams.get('scale'));
         if (isNaN(scale)) {
             scale = this.#config.defaultScale;
@@ -32,7 +32,7 @@ export class MapParams {
         return scale;
     }
 
-    ore() {
+    get ore() {
         let ore = this.#urlParams.get('ore');
         if (ore === null) {
             ore = this.#config.defaultOre;

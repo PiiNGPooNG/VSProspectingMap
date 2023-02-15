@@ -39,11 +39,11 @@ export class ProspectingRegion {
         this.fetchSamples();
     }
 
-    getX() {
+    get x() {
         return this.#x;
     }
 
-    getY() {
+    get y() {
         return this.#y;
     }
 

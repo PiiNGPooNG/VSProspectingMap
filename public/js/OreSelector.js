@@ -7,12 +7,12 @@ export class OreSelector {
         this.#select.addEventListener('change', this.#handleChange.bind(this));
     }
 
-    setOre(ore) {
+    set ore(ore) {
         this.#select.value = ore;
     }
     
     #handleChange(e) {
-        this.#map.setOre(this.#select.value);
+        this.#map.ore = this.#select.value;
         this.#map.draw();
     }
 }

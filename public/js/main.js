@@ -14,13 +14,13 @@ const mapParams = new MapParams(mapConfig);
 
 const canvas = document.querySelector('#map')
 const map = new ProspectingMap(canvas, mapConfig);
-map.setPosition(mapParams.x(), mapParams.y());
-map.setScale(mapParams.scale());
-map.setOre(mapParams.ore());
+map.position = {x: mapParams.x, y: mapParams.y};
+map.scale = mapParams.scale;
+map.ore = mapParams.ore;
 map.draw();
 
 const oreSelector = new OreSelector(map, document.querySelector('#shownOre'));
-oreSelector.setOre(mapParams.ore());
+oreSelector.ore = mapParams.ore;
 
 new UrlUpdater(map);
 new CoordinateUpdater(map, document.querySelector('.coords'));

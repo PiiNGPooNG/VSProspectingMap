@@ -27,11 +27,11 @@ export class ProspectingView {
         this.#ore = config.defaultOre;
     }
 
-    setOre(ore) {
+    set ore(ore) {
         this.#ore = ore;
     }
 
-    getOre() {
+    get ore() {
         return this.#ore;
     }
 
@@ -48,7 +48,7 @@ export class ProspectingView {
 
         this.#regions.forEach((region) => {
             if (region.within(viewX, viewY, this.#width / scale, this.#height / scale)) {
-                regionsToDraw[region.getX() - regionOffsetX][region.getY() - regionOffsetY] = region;
+                regionsToDraw[region.x - regionOffsetX][region.y - regionOffsetY] = region;
             }
         });
 

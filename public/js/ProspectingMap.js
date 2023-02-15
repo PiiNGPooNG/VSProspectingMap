@@ -34,42 +34,39 @@ export class ProspectingMap {
         this.#addEventListeners();
     }
 
-    setPosition(x, y) {
-        this.#position = {
-            x: x,
-            y: y
-        }
+    set position(position) {
+        this.#position = position;
     }
 
-    getPosition() {
+    get position() {
         return this.#position;
     }
 
-    setScale(scale) {
+    set scale(scale) {
         if (scale > 0 && scale < 1) {
             this.#scale = scale;
         }
     }
 
-    getScale() {
+    get scale() {
         return this.#scale;
     }
 
-    getLastMousePos() {
+    get lastMousePos() {
         return this.#lastMousePos;
     }
 
-    getChunkSize() {
+    get chunkSize() {
         return this.#config.chunkSize;
     }
 
-    setOre(ore) {
-        this.#view.setOre(ore);
+    set ore(ore) {
+        this.#view.ore = ore;
         this.#notify('oreChanged');
     }
 
-    getOre() {
-        return this.#view.getOre();
+    get ore() {
+        return this.#view.ore;
     }
 
     draw() {

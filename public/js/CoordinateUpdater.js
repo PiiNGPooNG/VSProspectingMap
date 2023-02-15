@@ -28,9 +28,9 @@ export class CoordinateUpdater {
     }
 
     #getHoveredCoordinates() {
-        const mousePos = this.#map.getLastMousePos();
-        const viewPos = this.#map.getPosition();
-        const scale = this.#map.getScale();
+        const mousePos = this.#map.lastMousePos;
+        const viewPos = this.#map.position;
+        const scale = this.#map.scale;
         const x = viewPos.x + mousePos.x / scale;
         const y = viewPos.y + mousePos.y / scale;
         return {x: x, y: y};
@@ -42,7 +42,7 @@ export class CoordinateUpdater {
     }
 
     #updateChunkCoordinates(coordinates) {
-        const chunkSize = this.#map.getChunkSize();
+        const chunkSize = this.#map.chunkSize;
         this.#elements.chunk.x.innerText = Math.floor(coordinates.x / chunkSize) * chunkSize;
         this.#elements.chunk.y.innerText = Math.floor(coordinates.y / chunkSize) * chunkSize;
     }
